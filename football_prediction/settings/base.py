@@ -38,6 +38,7 @@ DEBUG = env.bool("DEBUG", False)
 # Application definition
 
 DJANGO_APPS = [
+     "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -49,7 +50,7 @@ DJANGO_APPS = [
 SITE_ID = 1
 
 THIRD_PARTY_APPS = [
-    "daphne" "rest_framework",
+    "rest_framework",
     "corsheaders",
     "django_filters",
     "django_countries",
@@ -60,7 +61,7 @@ THIRD_PARTY_APPS = [
     "djcelery_email",
 ]
 
-LOCAL_APPS = ["apps.common", "apps.users", "apps.leagues"]
+LOCAL_APPS = ["apps.common", "apps.users", "apps.league"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -178,8 +179,8 @@ CORS_URLS_REGEX = r"^api/.*$"
 AUTH_USER_MODEL = "users.User"
 
 
-CELERY_BROKER_URL = env("CELERY_BROKER_URL")
-CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+# CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+# CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
@@ -222,7 +223,7 @@ SIMPLE_JWT = {
     ),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "SIGNING_KEY": env("SIGNING_KEY"),
+    "SIGNING_KEY": "ffsi9@x@wm86_baw*n-ipjd%dg8$cuy1$k1g@lh02hpqzxn",
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }

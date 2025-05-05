@@ -14,7 +14,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-from apps.users.pagination import UserPagination
+from apps.users.paginations import UserPagination
 
 User = get_user_model()
 

@@ -37,10 +37,19 @@ Here are the steps to install the **Football Prediction API Backend**:
    ```
 
 4. **Set Up Database**
-   Make sure to configure your database settings in the `settings.py` file. You may need to create a database and update the connection details.
+   Make sure to configure your database settings in the `base.py` or `development.py` file. You may need to create a database and update the connection details.
 
 5. **Run Migrations**
    Apply database migrations to set up the initial database schema.
+   
+   ```bash
+   python manage.py makemigrations users
+   ```
+
+   ```bash
+   python manage.py makemigrations league
+   ```
+
    ```bash
    python manage.py migrate
    ```
