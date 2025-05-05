@@ -223,7 +223,7 @@ SIMPLE_JWT = {
     ),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "SIGNING_KEY": "ffsi9@x@wm86_baw*n-ipjd%dg8$cuy1$k1g@lh02hpqzxn",
+    "SIGNING_KEY": env("SIGNING_KEY",),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }

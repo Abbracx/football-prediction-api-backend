@@ -10,9 +10,9 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "localhost"]
 
-CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0:8000"]
+CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0:8000", "http://localhost:8000"]
 
 EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

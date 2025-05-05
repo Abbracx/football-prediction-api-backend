@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
 from apps.league.models import Leaderboard, League, Match, Prediction, Team
+from apps.users.serializers import UserSerializer
+from apps.users.models import User
 
 
 class TeamSerializer(serializers.ModelSerializer):
