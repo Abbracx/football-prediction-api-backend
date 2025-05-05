@@ -2,8 +2,6 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 from apps.common.models import TimeStampedModel
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
 
 User = get_user_model()
 
@@ -40,6 +38,8 @@ class Match(TimeStampedModel):
     )
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="matches")
     start_time = models.DateTimeField()
+    home_score = models.IntegerField(null=True, blank=True)
+    away_score = models.IntegerField(null=True, blank=True)
     status = models.CharField(
         max_length=20,
         choices=Status.choices,
@@ -52,9 +52,8 @@ class Prediction(TimeStampedModel):
     match = models.ForeignKey(
         Match, on_delete=models.CASCADE, related_name="predictions"
     )
-    home_to_win= models.BooleanField(default=False)
-    away_to_win = models.BooleanField(default=False)
-    both_team_to_score = models.BooleanField(default=False)
+    home_score = models.IntegerField(validators=[MinValueValidator(0)])
+    away_score = models.IntegerField(validators=[MinValueValidator(0)])
     points_earned = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -1,12 +1,6 @@
 from rest_framework import serializers
 
-from apps.league.models import Leaderboard, League, Match, Prediction, User
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ["id", "username", "points"]
+from apps.league.models import Leaderboard, League, Match, Prediction, Team
 
 
 class TeamSerializer(serializers.ModelSerializer):
